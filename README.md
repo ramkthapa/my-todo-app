@@ -1,6 +1,10 @@
 # MyTodoApp
 
-# Server Side
+# About app
+
+This application is developed in angular material in client side and node.js and mongoDB in Server side.
+
+## Server Side
 
 Please make sure you have backend server running in your pc(should install node and mongoDB), you can find the backend repo in the link:
 https://github.com/ramkthapa/todo-api
