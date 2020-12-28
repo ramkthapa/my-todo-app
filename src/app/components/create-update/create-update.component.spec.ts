@@ -30,7 +30,6 @@ describe('CreateUpdateComponent', () => {
   const dialogRefSpyObj = jasmine.createSpyObj({ afterClosed : of({}), close: null });
   dialogRefSpyObj.componentInstance = { body: '' };
   let fixture: ComponentFixture<CreateUpdateComponent>;
-  // let globalObjectService: jasmine.SpyObj<GlobalObjectService>;
 
   const mockEmptyList = {
     _id: null,
@@ -74,7 +73,6 @@ describe('CreateUpdateComponent', () => {
     fixture = TestBed.createComponent(CreateUpdateComponent);
     service = TestBed.inject(TodoListService);
     dialogRef = TestBed.inject(MatDialogRef);
-    // globalObjectService = jasmine.createSpyObj('GlobalObjectService', ['getWindow']);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

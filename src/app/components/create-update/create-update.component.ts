@@ -26,10 +26,12 @@ export class CreateUpdateComponent implements OnInit {
     this.list = this.listService.getter();
   }
 
+  /** show error message below input fields */
   getErrorMessage(): any {
     return this.formControl.hasError('required') ? 'Required field' : '';
   }
 
+  /** create new list if no list id exist, edit list if available old list */
   createTodoList(): void {
     if (!this.list._id) {
       this.listService.createList(this.list).subscribe( response => {
@@ -46,6 +48,7 @@ export class CreateUpdateComponent implements OnInit {
     }
   }
 
+  /** cancel dialog box for create/update list */
   cancel(): void {
     this.dialogRef.close();
     window.location.reload();

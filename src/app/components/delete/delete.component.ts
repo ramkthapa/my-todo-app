@@ -14,6 +14,7 @@ export class DeleteComponent {
     public dialogRef: MatDialogRef<CreateUpdateComponent>,
   ) { }
 
+  /** close dialog box */
   cancel(): void {
     this.dialogRef.close();
   }
