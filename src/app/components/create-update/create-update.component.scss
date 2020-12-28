@@ -1,0 +1,29 @@
+@import '../../themes/_todo-list-variable.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: $content-dashboard-container;
+}
+
+.container > * {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  padding-top: $length-gap-mini;
+}
+
+.mat-form-field {
+  font-size: $font-size-large;
+  flex-grow: 1;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.mat-dialog-content {
+  overflow: inherit;
+}

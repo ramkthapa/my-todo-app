@@ -1,0 +1,33 @@
+<div class="container">
+  <h4 mat-dialog-title>Add Todo List</h4>
+
+  <form class="mat-dialog-content" #formControl="ngForm">
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #input class="form-control" [(ngModel)]="list.title" placeholder="Title" name="title" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <textarea matInput #input class="form-control" [(ngModel)]="list.description" placeholder="Description" name="description" required ></textarea>
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+          <input matInput [min]="minDate" #input class="form-control" [(ngModel)]="list.dueDate" placeholder="Due Date" name="dueDate" required [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" [disabled]="formControl.invalid" (click)="createTodoList()">Save</button>
+      <button mat-raised-button color="primary"(click)="cancel()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>

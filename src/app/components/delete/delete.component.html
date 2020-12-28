@@ -1,0 +1,7 @@
+<div class="container">
+  <h3 mat-dialog-title>Do you really want to delete it?</h3>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true">Yes</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="false" (click)="cancel()" tabindex="-1">No</button>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<!-- Create new list button -->
+<button class="create-list" (click)="openCreateDialog($event)" mat-raised-button color="primary">Create Todo list</button>
+
+<!-- list filter -->
+<mat-form-field class="filter">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="listFilter($event.target.value)" placeholder="example: api" #input>
+</mat-form-field>
+
+<!-- list table -->
+<table mat-table [dataSource]="lists" class="mat-elevation-z8" matSort>
+  <!-- title column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+
+  <!-- description column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <!-- due date column -->
+  <ng-container matColumnDef="dueDate">
+    <th mat-header-cell *matHeaderCellDef>Due date</th>
+    <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let row; let i=index;">
+        <button mat-icon-button color="accent" (click)="openEditDialog(row)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="accent" (click)="openDeleteDialog(row)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </td>
+
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

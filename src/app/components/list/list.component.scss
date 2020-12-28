@@ -1,0 +1,47 @@
+@import '../../themes/_todo-list-variable.scss';
+
+table {
+  width: 100%;
+}
+
+.mat-table {
+  background: $color-white-primary;
+  margin: 0 auto;
+}
+
+.mat-cell:nth-child(1),
+.mat-header-cell:nth-child(1){
+  flex: 0 0 15%;
+}
+
+.mat-cell:nth-child(2),
+.mat-header-cell:nth-child(2){
+  flex: 0 0 50%;
+}
+
+.mat-cell:nth-child(4),
+.mat-header-cell:nth-child(4){
+  flex: 0 0 25%;
+}
+
+.mat-cell:nth-child(4),
+.mat-header-cell:nth-child(4){
+  flex: 0 0 10%;
+}
+
+ th.mat-header-cell {
+   font-weight: 700;
+   font-size: $font-size-normal;
+ }
+
+.create-list {
+  margin: $length-gap-small $length-gap-huge 0 0;
+}
+
+.mat-button.mat-accent, .mat-icon-button.mat-accent, .mat-stroked-button.mat-accent {
+  color: $color-blue-primary;
+}
+
+.filter {
+  width: $content-dashboard-filter;
+}
