@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {ListComponent} from './list.component';
-import {of, Subject} from 'rxjs';
+import {of} from 'rxjs';
 import {TodoListService} from '../../service/todoList.service';
 import {AppRoutingModule} from '../../router/app-routing.module';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -15,61 +15,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {CreateUpdateComponent} from '../create-update/create-update.component';
 import {DeleteComponent} from '../delete/delete.component';
 import {Router} from '@angular/router';
-
-const mockCreateListResponse = {
-  list:
-    {
-      _id: '5fe8fd03c5bb782caca1590b',
-      title: 'aaaa',
-      description: 'bbbbb',
-      dueDate: '2020-12-28T23:00:00.000Z',
-    }
-};
-
-const mockGetAllLists = [
-  {
-    _id: '5fe8fd03c5bb782caca1dd0b',
-    title: 'aaaa1',
-    description: 'bbbbb1',
-    dueDate: '2020-12-28T23:00:00.000Z',
-  },
-  {
-    _id: '5fe8fd03c5bb782caca1590b',
-    title: 'aaaa',
-    description: 'bbbbb',
-    dueDate: '2020-12-28T23:00:00.000Z',
-  },
-]
-
-
-export const mockToDoListService = {
-  getLists: () => {
-    return of(mockGetAllLists);
-  },
-
-  createList: (list) => {
-    return of(mockCreateListResponse);
-  },
-
-  updateList: () => {
-    return of({});
-  },
-
-  deleteList: () => {
-    return of({});
-  },
-
-  refreshList: new Subject<void>(),
-
-  setter: () => {
-    return of({});
-  },
-
-  getter: () => {
-    return of ({});
-  },
-
-};
+import {TodoListMock} from '../../service/todoList.mock';
 
 const mockDialogRef = {
   open: () => {},
@@ -104,7 +50,7 @@ describe('ListComponent', () => {
         NoopAnimationsModule,
       ],
       providers: [
-        {provide: TodoListService, useValue: mockToDoListService},
+        {provide: TodoListService, useValue: TodoListMock.getFakeTodoListMockService()},
         {provide: MatDialogRef, useValue: mockDialogRef},
         {provide: Router, useValue: mockRouter},
       ]

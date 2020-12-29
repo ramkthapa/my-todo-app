@@ -2,7 +2,6 @@ import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing'
 import { CreateUpdateComponent } from './create-update.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {TodoListService} from '../../service/todoList.service';
-import {mockToDoListService} from '../list/list.component.spec';
 import {MatDialogRef} from '@angular/material/dialog';
 import {RouterTestingModule} from '@angular/router/testing';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -13,6 +12,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {of, throwError} from 'rxjs';
 import {WINDOW_TOKEN} from '../../app.module';
+import {TodoListMock} from '../../service/todoList.mock';
 
 const mockDialogRef = {
   open: () => {},
@@ -61,7 +61,7 @@ describe('CreateUpdateComponent', () => {
         NoopAnimationsModule,
       ],
       providers: [
-        {provide: TodoListService, useValue: mockToDoListService},
+        {provide: TodoListService, useValue: TodoListMock.getFakeTodoListMockService()},
         {provide: WINDOW_TOKEN, useValue: mockWindow},
         {provide: MatDialogRef, useValue: mockDialogRef},
       ],
